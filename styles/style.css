@@ -1,0 +1,56 @@
+/* style guide start */
+
+.container{@apply w-full mx-auto max-w-[1200px];}
+
+input:focus{@apply outline-none;}
+
+.main-page{@apply flex flex-col min-h-screen justify-between;}
+.main{@apply flex flex-col;}
+.form-group{@apply flex flex-col w-full mb-[15px];}
+.form-group label{@apply text-black capitalize font-semibold flex mb-[5px];}
+.form-control{@apply border rounded border-gray-300 text-black text-[16px] font-medium p-[10px];}
+.submit-btn{@apply w-full flex;}
+.submit-btn button{@apply duration-500 bg-black p-[10px] w-full rounded text-white font-semibold uppercase;}
+.submit-btn button:hover{@apply bg-red-500}
+.error-text{@apply text-red-600 font-bold text-[13px] mt-[2px];}
+
+.table,tr,td,th{@apply border rounded border-gray-500;}
+td,th{@apply p-[5px];}
+.table-btn{@apply bg-black text-white duration-500 border-none rounded pt-[5px] pb-[5px] pl-[10px] pr-[10px] text-[16px] mr-[5px] ml-[5px];}
+.table-btn:hover{@apply bg-red-500;}
+
+.bg-black-tr{@apply bg-gray-300;}
+
+/* header css start */
+
+.header{@apply flex w-full pt-[15px] pb-[15px] bg-black;}
+.header .container{@apply flex justify-between;}
+.logo h1{@apply text-white uppercase text-[30px] font-semibold;}
+.menu{@apply flex flex-row items-center;}
+.menu li a{@apply text-white duration-500 text-[16px] uppercase font-semibold;}
+.menu li a:hover{@apply text-red-500;}
+.menu li.active a{@apply text-red-500;}
+.menu li:not(:last-child){@apply mr-[15px]}
+
+/* body section css start  */
+
+.home-page{@apply flex flex-col items-center h-full w-full max-w-[400px] text-center m-auto;}
+.home-page h2{@apply uppercase text-[40px] font-bold;}
+
+.heading{@apply text-center w-full pt-[10px] pb-[10px];}
+.heading h2{@apply text-black uppercase font-semibold text-[30px];}
+
+/* login section css start  */
+
+.login-form{@apply w-full max-w-[500px] mx-auto border rounded border-gray-300 p-[30px] mb-[30px];}
+
+.user-row{@apply flex flex-row mr-[-10px] ml-[-10px] pt-[40px] pb-[40px];}
+.user-row .col-50{@apply pl-[10px] pr-[10px] w-[50%];}
+.table{@apply w-full;}
+
+/* footer css start  */
+
+.footer{@apply pb-[30px] pt-[30px] w-full bg-black;}
+.footer h2{@apply w-full text-center text-[24px] uppercase text-white font-semibold;}
+.footer p{@apply text-white text-center text-gray-400;}
+

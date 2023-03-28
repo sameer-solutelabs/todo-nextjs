@@ -24,12 +24,14 @@ const Header = () => {
                 </Link>
             </div>
             <ul className='menu'>
-                <li onClick={()=>setActive('home')} className={`${active === 'home' ? 'active' : ''}`}><Link href="">Home</Link></li>
+                <li onClick={()=>setActive('home')} className={`${active === 'home' ? 'active' : ''}`}><Link href="/">Home</Link></li>
+                <li onClick={()=>setActive('product')} className={`${active === 'product' ? 'active' : ''}`}><Link href="/product">Products</Link></li>
                 {isLoggedIn ?
                     <li onClick={()=>setActive('users')} className={`${active === 'users' ? 'active' : ''}`}><Link href="/user">users</Link></li> : ""
                 }
                 
                 <li onClick={()=>setActive('about')} className={`${active === 'about' ? 'active' : ''}`}><Link href="/about">about</Link></li>
+                <li onClick={()=>setActive('cart')} className={`${active === 'cart' ? 'active' : ''}`}><Link href="/cart">cart</Link></li>
                 {isLoggedIn ? 
                     <>                        
                                                

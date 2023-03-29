@@ -14,7 +14,7 @@ const ListViewProduct = ({products}) => {
                     <div className='product-col'>
                         <div className='product-box'>                                                      
                             <div className='prodcut-image'>
-                                <Link href={`/product/${product.id}`}>
+                                <Link href={`/products/${product.id}`}>
                                     <Image src={product.thumbnail} alt="product title" width={200} height={200} />
                                 </Link>
                             </div>

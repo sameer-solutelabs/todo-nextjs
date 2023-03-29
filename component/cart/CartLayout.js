@@ -52,7 +52,7 @@ const CartLayout = () => {
                                 <td>{cart.price}</td>
                                 <td>{cart.quantity}</td>
                                 <td>{cart.price * cart.quantity}</td>
-                                <td><Link href={`/product/${cart.id}`}>Edit</Link></td>
+                                <td><Link href={`/products/${cart.id}`}>Edit</Link></td>
                                 <td style={{cursor:"pointer"}} onClick={()=>removeItem(cart)}>X</td>
                                 
                             </tr>

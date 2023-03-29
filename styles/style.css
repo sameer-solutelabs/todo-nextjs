@@ -120,4 +120,11 @@ td,th{@apply p-[5px];}
 .cart-total h3{@apply pt-[10px] pb-[10px] text-center w-full text-[22px] font-semibold uppercase mb-[10px];border-bottom: 1px dotted #000000;}
 .cart-total p{@apply flex flex-row w-full justify-between pt-[10px] pb-[10px];}
 
+.variant-row{@apply flex flex-row items-center mb-[10px];}
+.variant-row p{@apply m-[0];}
+.sizeVariants{@apply flex flex-row w-full ml-[15px];}
+.sizeVariants li{@apply border rounded border-gray-500 duration-500 pt-[5px] pb-[5px] pl-[15px] pr-[15px] cursor-pointer;}
+.sizeVariants li:hover,.sizeVariants li.selected{@apply bg-black text-white;}
+.sizeVariants li:not(:last-child){@apply mr-[10px];}
+
 

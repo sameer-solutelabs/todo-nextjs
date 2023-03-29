@@ -12,24 +12,26 @@ const ProductDetails = ({products}) => {
   const [error,setError] = useState('')
   const [prevData,setPrevData] = useState([])
   
+  
 
   const handleQuantity = (type) => {
     type === 'inc' ?
     setQuantity((prev) => prev + 1) 
     : quantity === 0 ? null 
     : setQuantity((prev)=> prev - 1)
+    setError("")
+    
   }
 
   const validationHandler = () =>{
     if(quantity === 0){
       setError ({message:'Please choose Quantity',state:0})
-    } else {
-      setError({message:'SuccessFully Added',state:1})
-    }
+    } else {      
+      setError({message:'SuccessFully Added',state:1})   
+    }  
   }
 
   const addToCart = () => {
-
     validationHandler()
 
     const productData = {
@@ -41,14 +43,49 @@ const ProductDetails = ({products}) => {
       quantity:quantity
     }
 
-    localStorage.setItem('addTocart',JSON.stringify([...prevData,productData]))
+ 
+    if(error.state !== 0  && products.purchaseQuantity !== undefined && quantity <= products.purchaseQuantity){       
+      if(prevData.length > 0){
+        const data = prevData.filter((data)=> data.id === productData.id)
+        console.log(data,"data")
+        if(data?.length > 0){
+          data[0].quantity = quantity
+          localStorage.setItem('addTocart',JSON.stringify([...prevData]))
+        } else {
+          localStorage.setItem('addTocart',JSON.stringify([...prevData,productData]))
+        }     
+      } else {
+        localStorage.setItem('addTocart',JSON.stringify([productData]))
+      }      
+    } else {
+        if(prevData.length > 0){
+          const data = prevData.filter((data)=> data.id === productData.id)
+          console.log(data,"data")
+          if(data?.length > 0){
+            data[0].quantity = quantity
+            localStorage.setItem('addTocart',JSON.stringify([...prevData]))
+          } else {
+            localStorage.setItem('addTocart',JSON.stringify([...prevData,productData]))
+          }     
+        } else {
+          localStorage.setItem('addTocart',JSON.stringify([productData]))
+        }
+      } 
+
+      if (products.purchaseQuantity !== undefined && quantity > products.purchaseQuantity){
+        setError({message:"Purchase limit Exceeded",state:0})
+      }  
 
   }
 
   useEffect(()=>{
     if(typeof window !== "undefined" && localStorage.getItem('addTocart')){
-      setPrevData(JSON.parse(localStorage.getItem('addTocart')))
-      console.log(prevData,'prevData')     
+      const data = JSON.parse(localStorage.getItem('addTocart'))
+      setPrevData(data)    
+      if(data.length > 0){     
+        const quantityId = data?.filter((data)=> data.id === products.id).length > 0 ? data?.filter((data)=> data.id === products.id)[0].quantity : 0        
+        setQuantity(quantityId)
+      }      
     }
   },[])
 
@@ -74,14 +111,14 @@ const ProductDetails = ({products}) => {
                 <p><b>Stock :-</b> {products.stock}</p>
                 <div className='counter-row'>
                   <label>Quantity :-</label>
-                  <div className='counter-arrow'>   
+                  <div className='counter-arrow'>                                           
                       <div className='icon'>
                           <Image src={LeftArrow} alt="Left Arrow" width={20} height={20} objectFit="contain" onClick={()=>handleQuantity("dec")} />
                       </div>                         
-                      <span>{quantity}</span>
-                      <div className='icon'>
+                      <span>{quantity}</span>                   
+                      <div  className={`${quantity >= products.stock ? 'disable icon' : 'icon'}`}>
                           <Image src={RightArrow} alt="Left Arrow" width={20} height={20} objectFit="contain" onClick={()=>handleQuantity("inc")} />
-                      </div>
+                      </div>                    
                   </div>
                 </div>
                 <div className='add-btn'>

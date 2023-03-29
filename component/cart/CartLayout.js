@@ -13,6 +13,8 @@ const CartLayout = () => {
         }        
     },[])
   
+     const total = () => localFetchData.reduce((a,b) => a + b.quantity * b.price, 0)
+
    
    const removeItem = (data) =>{             
         const cartDeleteData = localFetchData.filter(item => item.id !== data.id)
@@ -50,8 +52,9 @@ const CartLayout = () => {
                                 <td>{cart.price}</td>
                                 <td>{cart.quantity}</td>
                                 <td>{cart.price * cart.quantity}</td>
-                                <td style={{cursor:"pointer"}} onClick={()=>removeItem(cart)}>X</td>
                                 <td><Link href={`/product/${cart.id}`}>Edit</Link></td>
+                                <td style={{cursor:"pointer"}} onClick={()=>removeItem(cart)}>X</td>
+                                
                             </tr>
                         ))
                     }
@@ -59,7 +62,13 @@ const CartLayout = () => {
                 </tbody>
             </table>
         </div>
-        
+        <div className='col-35'>
+            <div className='cart-total'>
+                <h3>Cart</h3>
+                <p><b>Item</b> <b>{localFetchData.length}</b></p>
+                <p><b>Total</b> <b>{total()}</b></p>
+            </div>
+        </div>
     </section>
   )
 }

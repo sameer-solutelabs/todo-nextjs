@@ -108,8 +108,16 @@ td,th{@apply p-[5px];}
 
 /* cart css start  */
 .cart-layout{@apply flex flex-row ;}
-.cart-layout .col-65{@apply w-[100%] ;}
+.cart-layout .col-65{@apply w-[65%] ;}
 .cart-layout .col-35{@apply w-[35%] pr-[15px] pl-[15px];}
 
 .cart-table{@apply mb-[50px] w-full;}
+.cart-table a:hover{@apply text-red-500;}
+.counter-arrow .disable{opacity: 0.4;pointer-events: none;}
+.cart-total{@apply shadow-md p-[20px] rounded;}
+
+.cart-total{@apply flex flex-col w-full;}
+.cart-total h3{@apply pt-[10px] pb-[10px] text-center w-full text-[22px] font-semibold uppercase mb-[10px];border-bottom: 1px dotted #000000;}
+.cart-total p{@apply flex flex-row w-full justify-between pt-[10px] pb-[10px];}
+
 

@@ -23,9 +23,7 @@ const ListViewProduct = ({products}) => {
                                 <p><b>Description :-</b> {product.description}</p>
                                 <p><b>Price :-</b> {product.price}</p>                               
                                 <p><b>Rating :- </b>{product.rating}</p>
-                                <p><b>Stock :- </b>
-                                    {product.stock}
-                                </p>
+                                <p><b>Stock :- </b>{product.stock}</p>
                             </div>                                                       
                         </div>
                     </div>

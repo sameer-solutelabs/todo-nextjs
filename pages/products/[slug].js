@@ -43,7 +43,7 @@ const ProductDetails = ({products}) => {
       image:products.thumbnail,
       title:products.title,
       description:products.description,
-      price:products.variant[size].price,                 
+      price:products.variant[size].price,                    
       quantity:quantity
     }
 
@@ -111,14 +111,14 @@ const ProductDetails = ({products}) => {
               <div className='product-info'>
                 <h2>{products.title}</h2>
                 <h3>{products.description}</h3>
-                <p><b>Price :-</b> {products.variant[size].price} </p>               
+                <p><b>Price :-</b> {products.variant[size].price } </p>               
                 <p><b>Rating :-</b> {products.rating}</p>
-                <p><b>Stock :-</b> {products.variant[size].stock} </p>
+                <p><b>Stock :-</b> {products.variant[size].stock } </p>
                 <div className='variant-row'>
                   <p><b>Variant:-</b> </p>
                   <ul className='sizeVariants'>                  
-                      <li onClick={()=>setSize(0)} className={size === 0 ? "selected" : ''}>32 GB</li>   
-                      <li onClick={()=>setSize(1)} className={size === 1 ? "selected" : ''}>64 GB</li>                 
+                      <li onClick={()=>setSize(0)} className={size === 0 ? "selected" : ''}>{products.variant[0].size}</li>   
+                      <li onClick={()=>setSize(1)} className={size === 1 ? "selected" : ''}>{products.variant[1].size}</li>                 
                   </ul>
                 </div>
                 <div className='counter-row'>

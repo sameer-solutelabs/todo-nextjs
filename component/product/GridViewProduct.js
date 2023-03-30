@@ -22,7 +22,8 @@ const GridViewProduct = ({products}) => {
                                 </div>
                                 <h2>{product.title}</h2>
                                 <p><b>Description :-</b> {product.description}</p>
-                                <p><b>Price :-</b> {product.price}</p>                                                                                 
+                                <p><b>Price :-</b> {product.price}</p>     
+                                <p><b>Stock :-</b> {product.stock}</p>                                                                               
                             </Link>
                         </div>
                     </div>
